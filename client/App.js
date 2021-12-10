@@ -1,6 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import React, { useState } from 'react';
-import {StyleSheet, Text, View,TextInput,Button } from 'react-native';
+import {StyleSheet, Text, View,TextInput,Button,Image } from 'react-native';
 
 
 export default function App() {
@@ -19,7 +19,9 @@ export default function App() {
       const text = []
       for (const key in user){
         text.push(
-         <><View style={styles.bloccontainer}>
+         <>
+         
+         <View style={styles.bloccontainer}>
             <Text style={styles.titretext} key={key}>{key}</Text>
             <Text style={styles.text} key={key}>{user[key]}</Text> 
            </View></>
@@ -41,6 +43,10 @@ export default function App() {
     }} 
     
     /><View style={styles.textcontainer}>
+      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+          <Image style={styles.logo} source={{ uri: user.avatar_url }} />
+        </View>
+
       {getElements()}</View>
       <StatusBar style="auto" />
     </View>
@@ -85,6 +91,13 @@ const styles = StyleSheet.create({
 
   text:{
     color:"#686B70"
+  },
+
+  logo:{
+    height:100,
+    width:100,
+    marginBottom:10,
+    borderRadius:100
   }
 
 });
