@@ -19,7 +19,10 @@ export default function App() {
       const text = []
       for (const key in user){
         text.push(
-          <Text style={styles.text} key={key}>{key} : {user[key]}</Text>
+         <><View style={styles.bloccontainer}>
+            <Text style={styles.titretext} key={key}>{key}</Text>
+            <Text style={styles.text} key={key}>{user[key]}</Text> 
+           </View></>
         )
       }
       return text
@@ -47,7 +50,7 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#EFF2F9',
+    backgroundColor: '#F9FFFE',
     alignItems: 'center',
     justifyContent: 'center',
   },
@@ -60,19 +63,28 @@ const styles = StyleSheet.create({
   },
 
   textcontainer: {
-    
     marginTop:10,
-    alignItems: 'stretch',
+    textAlign: 'center',    
     justifyContent: 'center',
+  },
 
+  titretext:{
+    fontWeight: "bold",
+    fontSize:19,
+    color:"#1C1D1F"
+  },
+
+  bloccontainer:{
+    height: 60,
+    marginBottom:10,
+    paddingTop:5,
+    borderRadius:50,
+    borderColor: "#6D758B",
+    backgroundColor:"#D8F5F5"
   },
 
   text:{
-    height: 40,
-    paddingTop:10,
-    borderWidth: 1,
-    borderColor: "#6D758B",
-    backgroundColor:"#E5EBF7"
+    color:"#686B70"
   }
 
 });
